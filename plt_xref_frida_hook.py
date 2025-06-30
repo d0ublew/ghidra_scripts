@@ -12,7 +12,7 @@ for xref in xref_iter:
     entry_point = fn.getEntryPoint()
 
     hook = """\
-Interceptor.attach(lib_base.add(0x{offset}), {{
+Interceptor.attach(lib_base.add({offset}), {{
     onEnter(args) {{
         this.out = args[0];
         // console.log("[*] {offset} in");
@@ -21,5 +21,5 @@ Interceptor.attach(lib_base.add(0x{offset}), {{
         console.log("[*] {offset} vsprintf out: " + this.out.readCString());
     }},
 }})\
-""".format(offset=str(entry_point))
+""".format(offset=hex(int(entry_point.subtract(image_base))))
     print(hook)
