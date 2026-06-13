@@ -20,6 +20,6 @@ Interceptor.attach(lib_base.add({offset}), {{
     onLeave(retval) {{
         console.log("[*] {offset} vsprintf out: " + this.out.readCString());
     }},
-}})\
+}});\
 """.format(offset=hex(int(entry_point.subtract(image_base))))
     print(hook)

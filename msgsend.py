@@ -1,12 +1,12 @@
-from ghidra.program.model.symbol import *
 from ghidra.program.model.data import *
+from ghidra.program.model.symbol import *
 
 xref_mgr = currentProgram.getReferenceManager()
 
 xref_iter = xref_mgr.getReferencesTo(currentAddress)
 
 for xref in xref_iter:
-    addr = (xref.getFromAddress().subtract(0xc))
+    addr = xref.getFromAddress().subtract(0xC)
     fn = getFunctionAt(addr)
     # fn.setInline(False)
     char_pointer2 = getInstructionAt(addr.add(0x4)).getAddress(1)

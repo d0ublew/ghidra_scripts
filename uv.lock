@@ -1,0 +1,22 @@
+version = 1
+revision = 2
+requires-python = ">=3.13"
+
+[[package]]
+name = "ghidra-stubs"
+version = "11.3"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2a/a2/47dd8f43134890aab222b58801928e3d7f7541d24ac0e9748445b08129d6/ghidra_stubs-11.3-py3-none-any.whl", hash = "sha256:46b6ebc60fe68ab19b3da81ed05c55fd44079065cf9efcf017e01e169275ed92", size = 2968614, upload-time = "2025-02-06T11:47:36.98Z" },
+]
+
+[[package]]
+name = "mine"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "ghidra-stubs" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "ghidra-stubs", specifier = "==11.3" }]
